@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 62a9befcf2af331448972c072246f78d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - player: {fileID: 107946, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+  - skellyNoises: {instanceID: 0}
+  - deathNoise: {instanceID: 0}
+  - skull: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
