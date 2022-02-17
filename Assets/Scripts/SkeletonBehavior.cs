@@ -7,7 +7,6 @@ public class SkeletonBehavior : MonoBehaviour
     public GameObject player;
     private Vector3 playerPosition;
     private int health;
-    public float moveSpeed;
 
     public AudioSource skellyNoises;
     public AudioSource deathNoise;
@@ -19,7 +18,6 @@ public class SkeletonBehavior : MonoBehaviour
     void Start()
     {
         health = 3;
-        moveSpeed = 2;
         rb = GetComponent<Rigidbody>();
         playerPosition = player.transform.position;
     }
@@ -56,8 +54,8 @@ public class SkeletonBehavior : MonoBehaviour
     {
         if (health <= 0) 
         {
-            //despawn model/play death noise/spawn skull throwable
-
+            //despawn model/play death noise/spawn skull throwable'
+            this.gameObject.SetActive(false);
             deathNoise.Play();
             Instantiate(skull, this.transform);
             //score increased

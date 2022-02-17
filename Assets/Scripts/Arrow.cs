@@ -6,14 +6,18 @@ using Valve.VR.InteractionSystem;
 public class Arrow : MonoBehaviour
 {
     public AudioSource arrowBreaking;
-    
+    public GameObject player;
+    private Vector3 playerposition;
+    [SerializeField] private Transform target;
 
     // Start is called before the first frame update
     void Start()
     {
         //find player position
-
+        playerposition = player.transform.position;
+        target = player.transform;
         //point towards it
+        transform.LookAt(target);
     }
 
     // Update is called once per frame
@@ -30,12 +34,10 @@ public class Arrow : MonoBehaviour
             this.gameObject.SetActive(false);
             //blood effect
         }
-        else if(other.gameObject.CompareTag("SpinningSkelle2") || other.gameObject.CompareTag("RangedSkele"))
+        else
         {
             this.gameObject.SetActive(false);
-            //dust cloud or breaking particles
             arrowBreaking.Play();
         }
-        
     }
 }
