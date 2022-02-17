@@ -11,8 +11,7 @@ public class RangedSkeleBehavir : MonoBehaviour
     private Vector3 playerPosition;
     private Transform playerplacement;
    
-
-    private int timer;
+    private float timer;
     private Vector3 offset;
     public GameObject arrow;
     public int hitstunTimer;
@@ -27,24 +26,24 @@ public class RangedSkeleBehavir : MonoBehaviour
         timer = 0;
         hitstunTimer = 0;
         rb = GetComponent<Rigidbody>();
-
-        playerPosition = player.transform.position;
-        playerplacement = player.transform;
-        offset = new Vector3(this.transform.position.x - 1.0f, this.transform.position.y + 1.2f, this.transform.position.z - 3.0f);
+        offset = new Vector3(/*this.transform.position.x*/0.0f, this.transform.position.y + 1.0f, 0.0f /*this.transform.position.z*/);
+        //playerPosition = player.transform.position;
+        //playerplacement = player.transform;
     }
 
     // Update is called once per frame
     void Update()
     {
         //look at player game object
-        isAlive();
-        //transform.LookAt(player.transform.position);
-
-        timer++;
+        timer += Time.deltaTime;
         hitstunTimer++;
-        if (timer >= 600)
+        if (timer >= 5.0f)
         {
             timer = 0;
+            playerplacement = player.transform;
+            transform.LookAt(playerplacement);
+
+            Debug.Log("Look at");
             Instantiate(arrow, this.transform.position + offset, this.transform.rotation);
         }
     }
@@ -63,12 +62,8 @@ public class RangedSkeleBehavir : MonoBehaviour
                 health--;
                 //spawn particles for skull getting broken
             }
-            else if (other.gameObject.CompareTag("SpikeHitbox"))
-            {
-                health = 0;
-                this.gameObject.SetActive(false);
-            }
         }
+        isAlive();
     }
     //checks unit health each update to see if they died or not
     void isAlive()

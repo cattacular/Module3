@@ -45,6 +45,7 @@ public class SkeletonBehavior : MonoBehaviour
         else if (other.gameObject.CompareTag("Skull"))
         {
             health--;
+            other.gameObject.SetActive(false);
             //spawn particles for skull getting broken
         }
         else if (other.gameObject.CompareTag("SpikeHitbox"))

@@ -3,7 +3,11 @@ guid: b0a2aa3599aa26d49bf6372f5583e16a
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - player: {instanceID: 0}
+  - arrow: {fileID: 173732, guid: 253cbffd30606264fb3e87fcb5a6a059, type: 3}
+  - deathNoise: {instanceID: 0}
+  - skull: {fileID: 6995960148090709096, guid: c1e15169e8a42c04e877bff50bfe752a, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

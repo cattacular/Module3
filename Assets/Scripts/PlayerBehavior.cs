@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerBehavior : MonoBehaviour
 {
     public int health;
-    public int timer;
+    public float timer;
     
 
     // Start is called before the first frame update
@@ -18,18 +18,28 @@ public class PlayerBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer++;
-        
+        timer += Time.deltaTime;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(timer > 300)
+        if(timer > 30.0f)
         {
             timer = 0;
             health--;
+            isAlive();
+            if (other.gameObject.CompareTag("Arrow")) 
+            {
+                other.gameObject.SetActive(false);
+            }
         }
+    }
 
-        
+
+    private void isAlive()
+    {
+        if (health <= 0) {
+            this.transform.position = new Vector3(0, 0, 0);
+        }
     }
 }

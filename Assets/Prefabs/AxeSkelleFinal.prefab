@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3104212815351656146}
   - component: {fileID: 626503134713716886}
   - component: {fileID: 315430024572824277}
+  - component: {fileID: 4532392831797548825}
   m_Layer: 0
   m_Name: AxeSkelleFinal
   m_TagString: Untagged
@@ -127,3 +128,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48f42b067c02f1c449dcb1d4ba4696aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!64 &4532392831797548825
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400366716832794421}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8213112278404210263, guid: 39b00841dfe27d3458f9eed290f84eb6, type: 3}
