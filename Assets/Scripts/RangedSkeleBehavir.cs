@@ -65,7 +65,7 @@ public class RangedSkeleBehavir : MonoBehaviour
     }
     //checks unit health each update to see if they died or not
     void isAlive()
-    {
+   {
         if (health <= 0)
         {
             this.gameObject.SetActive(false);
