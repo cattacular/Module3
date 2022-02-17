@@ -19,9 +19,7 @@ public class PlayerBehavior : MonoBehaviour
     void Update()
     {
         timer++;
-        if (health <= 0) {
-        //change UI Text to "YOU DIED!"
-        }
+        
     }
 
     private void OnTriggerEnter(Collider other)
