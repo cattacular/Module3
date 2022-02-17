@@ -56,7 +56,7 @@ public class RangedSkeleBehavir : MonoBehaviour
                 health--;
                 //spawn particles for skull getting broken
             }
-            else if (other.gameObject.CompareTag("Spike01"))
+            else if (other.gameObject.CompareTag("SpikeHitbox"))
             {
                 health = 0;
                 this.gameObject.SetActive(false);
