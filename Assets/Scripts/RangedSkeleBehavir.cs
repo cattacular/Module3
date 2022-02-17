@@ -9,6 +9,7 @@ public class RangedSkeleBehavir : MonoBehaviour
     private int health;
     private Rigidbody rb;
     private Vector3 playerPosition;
+    private Transform playerplacement;
     private int timer;
     private Vector3 offset;
     public GameObject arrow;
@@ -23,7 +24,9 @@ public class RangedSkeleBehavir : MonoBehaviour
         timer = 0;
         hitstunTimer = 0;
         rb = GetComponent<Rigidbody>();
+
         playerPosition = player.transform.position;
+        playerplacement = player.transform;
         offset = new Vector3(this.transform.position.x - 1.0f, this.transform.position.y + 1.2f, this.transform.position.z - 3.0f);
     }
 
