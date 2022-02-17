@@ -10,6 +10,7 @@ public class SkeletonBehavior : MonoBehaviour
 
     public AudioSource skellyNoises;
     public AudioSource deathNoise;
+    private int soundTimer;
     
     public GameObject skull;
     private Rigidbody rb;
@@ -26,8 +27,12 @@ public class SkeletonBehavior : MonoBehaviour
     void Update()
     {  
         isAlive();
-
-        
+        soundTimer++;
+        if (soundTimer >= 300)
+        {
+            soundTimer = 0;
+            skellyNoises.Play();
+        }
     }
 
     //fixed update for damage
@@ -61,6 +66,4 @@ public class SkeletonBehavior : MonoBehaviour
             //score increased
         }
     }
-
-    //script to chase/walk towards player once they're close enough
 }
