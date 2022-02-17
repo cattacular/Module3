@@ -10,10 +10,13 @@ public class RangedSkeleBehavir : MonoBehaviour
     private Rigidbody rb;
     private Vector3 playerPosition;
     private Transform playerplacement;
+   
+
     private int timer;
     private Vector3 offset;
     public GameObject arrow;
     public int hitstunTimer;
+
     public AudioSource deathNoise;
     public GameObject skull;
 
@@ -35,7 +38,8 @@ public class RangedSkeleBehavir : MonoBehaviour
     {
         //look at player game object
         isAlive();
-        transform.LookAt(player.transform.position);
+        //transform.LookAt(player.transform.position);
+
         timer++;
         hitstunTimer++;
         if (timer >= 600)
