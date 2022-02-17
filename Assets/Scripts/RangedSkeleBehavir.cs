@@ -68,11 +68,10 @@ public class RangedSkeleBehavir : MonoBehaviour
     {
         if (health <= 0)
         {
-            //despawn model/play death noise/spawn skull throwable'
             this.gameObject.SetActive(false);
             deathNoise.Play();
             Instantiate(skull, this.transform);
-            //score increased
+            //score increased?
         }
     }
 }
