@@ -5,13 +5,12 @@ using UnityEngine;
 public class SkeletonBehavior : MonoBehaviour
 {
     public GameObject player;
-    private Vector3 playerPosition;
     private int health;
 
-    //public AudioSource skellyNoises;
-   // public AudioSource deathNoise;
+    public AudioSource skellyNoises;
+    public AudioSource deathNoise;
     public GameObject damageParticles;
-    private int soundTimer;
+    private float soundTimer;
     
     public GameObject skull;
     private Rigidbody rb;
@@ -21,18 +20,17 @@ public class SkeletonBehavior : MonoBehaviour
     {
         health = 3;
         rb = GetComponent<Rigidbody>();
-        playerPosition = player.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {  
         isAlive();
-        soundTimer++;
+        soundTimer += Time.deltaTime;
         if (soundTimer >= 300)
         {
             soundTimer = 0;
-            //skellyNoises.Play();
+            skellyNoises.Play();
         }
     }
 
@@ -43,11 +41,13 @@ public class SkeletonBehavior : MonoBehaviour
         if (other.gameObject.CompareTag("Sword"))
         {
             health--;
+            deathNoise.Play();
         }
         else if (other.gameObject.CompareTag("Skull") || other.gameObject.CompareTag("Arrow1"))
         {
             health--;
             other.gameObject.SetActive(false);
+            deathNoise.Play();
             //spawn particles for skull getting broken
         }
     }

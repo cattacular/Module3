@@ -23,7 +23,10 @@ public class PlayerBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
+        if (timer < 10.0f)
+        {
+            timer += Time.deltaTime;
+        }
     }
 
     private void OnTriggerEnter(Collider other)

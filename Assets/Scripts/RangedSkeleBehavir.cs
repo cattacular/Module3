@@ -8,13 +8,12 @@ public class RangedSkeleBehavir : MonoBehaviour
     public GameObject player;
     private int health;
     private Rigidbody rb;
-    private Vector3 playerPosition;
-    private Transform playerplacement;
+    public Transform playerplacement;
    
     private float timer;
     private Vector3 offset;
     public GameObject arrow;
-    public int hitstunTimer;
+    public float hitstunTimer;
 
     public AudioSource deathNoise;
     public GameObject skull;
@@ -27,8 +26,7 @@ public class RangedSkeleBehavir : MonoBehaviour
         hitstunTimer = 0;
         rb = GetComponent<Rigidbody>();
         offset = new Vector3(/*this.transform.position.x*/0.0f, this.transform.position.y + 1.0f, 0.0f /*this.transform.position.z*/);
-        //playerPosition = player.transform.position;
-        //playerplacement = player.transform;
+        transform.LookAt(playerplacement);
     }
 
     // Update is called once per frame
@@ -36,7 +34,7 @@ public class RangedSkeleBehavir : MonoBehaviour
     {
         //look at player game object
         timer += Time.deltaTime;
-        hitstunTimer++;
+        hitstunTimer += Time.deltaTime;
         if (timer >= 5.0f)
         {
             timer = 0;
@@ -50,7 +48,7 @@ public class RangedSkeleBehavir : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (hitstunTimer >= 30)
+        if (hitstunTimer >= 30.0f)
         {
             hitstunTimer = 0;
             if (other.gameObject.CompareTag("Sword"))

@@ -6,20 +6,15 @@ using Valve.VR.InteractionSystem;
 public class Arrow : MonoBehaviour
 {
     //public AudioSource arrowBreaking;
-    public GameObject player;
-    private Vector3 playerposition;
+
     public int moveSpeed;
-    [SerializeField] private Transform target;
+    public Transform player;
 
     // Start is called before the first frame update
     void Start()
     {
-        //find player position
-        playerposition = player.transform.position;
-        target = player.transform;
-        //point towards it
         moveSpeed = 3;
-        transform.LookAt(target);
+        transform.LookAt(player);
     }
 
     // Update is called once per frame
@@ -27,7 +22,6 @@ public class Arrow : MonoBehaviour
     {
         //each update move forward some amount of distance
         transform.position += transform.forward * moveSpeed * Time.deltaTime;
-
     }
 
     //on collision with player or surface
