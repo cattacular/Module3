@@ -10,6 +10,7 @@ public class SkeletonBehavior : MonoBehaviour
 
     public AudioSource skellyNoises;
     public AudioSource deathNoise;
+    public GameObject damageParticles;
     private int soundTimer;
     
     public GameObject skull;
@@ -38,20 +39,16 @@ public class SkeletonBehavior : MonoBehaviour
     //fixed update for damage
     private void OnTriggerEnter(Collider other)
     {
+        Instantiate(damageParticles, this.transform);
         if (other.gameObject.CompareTag("Sword"))
         {
             health--;
         }
-        else if (other.gameObject.CompareTag("Skull"))
+        else if (other.gameObject.CompareTag("Skull") || other.gameObject.CompareTag("Arrow1"))
         {
             health--;
             other.gameObject.SetActive(false);
             //spawn particles for skull getting broken
-        }
-        else if (other.gameObject.CompareTag("SpikeHitbox"))
-        {
-            health = 0;
-            this.gameObject.SetActive(false);
         }
     }
 

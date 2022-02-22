@@ -6,6 +6,7 @@ public class FollowPlayer : MonoBehaviour
 {
     public GameObject player;
     public float moveSpeed = 2;
+    public float distanceToAttack = 10.0f;
     private Transform playerTransform;
 
     // Start is called before the first frame update
@@ -19,7 +20,7 @@ public class FollowPlayer : MonoBehaviour
     {
         float distance = Vector3.Distance(playerTransform.position, transform.position);
         //if player is within 5 units of enemy
-        if (distance <= 10.0)
+        if (distance <= distanceToAttack)
         {
             transform.position += transform.forward * moveSpeed * Time.deltaTime;
         }
