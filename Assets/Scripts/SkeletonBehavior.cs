@@ -8,8 +8,8 @@ public class SkeletonBehavior : MonoBehaviour
     private Vector3 playerPosition;
     private int health;
 
-    public AudioSource skellyNoises;
-    public AudioSource deathNoise;
+    //public AudioSource skellyNoises;
+   // public AudioSource deathNoise;
     public GameObject damageParticles;
     private int soundTimer;
     
@@ -32,7 +32,7 @@ public class SkeletonBehavior : MonoBehaviour
         if (soundTimer >= 300)
         {
             soundTimer = 0;
-            skellyNoises.Play();
+            //skellyNoises.Play();
         }
     }
 
@@ -59,7 +59,7 @@ public class SkeletonBehavior : MonoBehaviour
         {
             //despawn model/play death noise/spawn skull throwable'
             this.gameObject.SetActive(false);
-            deathNoise.Play();
+            //deathNoise.Play();
             Instantiate(skull, this.transform);
             //score increased
         }
